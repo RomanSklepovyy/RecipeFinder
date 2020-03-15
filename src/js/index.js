@@ -27,7 +27,17 @@ const controlSearch = async () => {
     }
 };
 
-document.querySelector('.search').addEventListener('submit', e => {
+elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
+});
+
+elements.searchResPages.addEventListener('click', e => {
+    const button = e.target.closest('.btn-inline');
+
+    if (button) {
+        const goToPage = parseInt(button.dataset.goto, 10);
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
 });
