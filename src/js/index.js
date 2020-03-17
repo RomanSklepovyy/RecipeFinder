@@ -4,6 +4,7 @@ import * as searchView from './views/searchView';
 import {elements, renderLoader, clearLoader} from "./views/base";
 import Recipe from "./models/Recipe";
 import * as recipeView from "./views/recepiView";
+import List from './models/List';
 
 // Global state of the app
 const state = {};
@@ -98,8 +99,21 @@ const controlRecipe = async () => {
 
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
 
+elements.recipe.addEventListener('click', e => {
+   if (e.target.matches('.btn-decrease, .btn-decrease *')) {
+       // Decrease btn clicked
+       if (state.recipe.servings > 1) {
+           state.recipe.updateServings('dec');
+           recipeView.updateServingIng(state.recipe);
+       }
+   } else if (e.target.matches('.btn-increase, .btn-increase *')) {
+       // Increase btn clicked
+       state.recipe.updateServings('inc');
+       recipeView.updateServingIng(state.recipe);
+   }
+});
 
-
+window.l = new List();
 
 
 
