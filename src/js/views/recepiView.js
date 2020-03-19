@@ -7,6 +7,9 @@ export const clearRecipe = () => {
 
 const formatCount = count => {
     if (count) {
+
+        count = count.toFixed(2);
+
         // 2.5 --> 2 1/2
         const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
 

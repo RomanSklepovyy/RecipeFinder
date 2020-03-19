@@ -129,7 +129,7 @@ elements.shopping.addEventListener('click', e => {
 
     // Handle the count update
     } else if(e.target.matches('.shopping__count-value')) {
-        const val = parseFloat(e.target.value, 10);
+        const val = parseInt(e.target.value, 10);
         state.list.updateCount(id, val);
     }
 });
@@ -147,7 +147,7 @@ elements.recipe.addEventListener('click', e => {
        state.recipe.updateServings('inc');
        recipeView.updateServingIng(state.recipe);
 
-   } else if (e.target.matches('.recipe__btn--add, recipe__btn--add *')) {
+   } else if (e.target.matches('.recipe__btn--add, .recipe__btn--add *')) {
        controlList();
    }
 });

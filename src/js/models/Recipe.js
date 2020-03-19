@@ -70,10 +70,10 @@ export default class Recipe {
                     ingredient: arrIng.slice(unitIndex + 1).join(' ')
                 };
 
-            } else if (parseInt(arrIng[0], 10)) {
+            } else if (parseFloat(arrIng[0], 10)) {
                 // No unit but 1st element is a number
                 obj = {
-                    count: parseInt(arrIng[0], 10),
+                    count: parseFloat(arrIng[0], 10),
                     unit: '',
                     ingredient: arrIng.slice(1).join(' ')
                 }
